@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import './chart.module.css';
 
 const ChartComponent = () => {
   const [data, setData] = useState([]);
@@ -42,10 +41,10 @@ const ChartComponent = () => {
 
   return <>
     <LineChart
-      width={500}
-      height={300}
+      width={1250}
+      height={700}
       data={series}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      margin={{ top: 50, right: 30, left: 20, bottom: 55 }}
     >
       <XAxis dataKey=" " />
       <YAxis />

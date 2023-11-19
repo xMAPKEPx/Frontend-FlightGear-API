@@ -1,0 +1,34 @@
+tr {
+    display: table;
+    width: 100%;
+}
+
+td button{
+    border: none;
+    background-color: inherit;
+    padding: 1px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align:left;
+    font-family:"Times";
+}
+  
+/* Элемент меняет цвет при наведении на него */
+td button:hover {   
+    color: #8c00ff;
+    background-color: #e3d1ff ;
+}
+
+/* Элемент меняет цвет после нажатия, но стоит потом куда-то кликнуть и изменённый цвет заменяется на цвет по умолчанию. */
+td button:focus {  
+    color: #8c00ff;
+    background-color: #e3d1ff ;
+}
+
+button img {
+    vertical-align: right;
+    float:right;
+}
