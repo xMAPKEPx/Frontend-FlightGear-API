@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Table from './components/table/Table';
 import ChartComponent from './components/chart/chart';

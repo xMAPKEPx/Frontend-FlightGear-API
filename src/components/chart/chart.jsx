@@ -11,51 +11,52 @@ const ChartComponent = () => {
       .then(data => setData(data));
   }, []);
 
-  const test = [{
-    name: 'dsasha',
-    uv: 400, pv: 2400, amt: 1200
-  },
-  {
-    name: 'dsasDE',
-    uv: 600, pv: 2367, amt: 1240
-  },
-  {
-    name: 'dsDEDha',
-    uv: 800, pv: 3421, amt: 1320
-  }]
-
-  const paramsArray = [
+  const series = [
     {
-        name: 'Тангаж',
-        count: '13962',
-        value: 123
+      // Название параметра
+      name: 'Тангаж',
+      // Значения параметра
+      data: [
+        { value: 400 },
+        { value: 750 },
+        { value: 100 },
+      ],
     },
     {
-        name: 'Mангаж',
-        count: '13962',
-        value: [12,30,20, 61,79,20]
+      name: 'Мангаж',
+      data: [
+        { value: 400 },
+        { value: 600 },
+        { value: 800 },
+      ],
     },
     {
-        name: 'Гараж',
-        count: '13962',
-        value: [12,30,20, 61,79,20]
-    }
-    ]
+      name: 'Гараж',
+      data: [
+        { value: 100 },
+        { value: 600 },
+        { value: 300 },
+      ],
+    },
+  ];
 
   return <>
     <LineChart
       width={500}
       height={300}
-      data={test}
+      data={series}
       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
     >
-      <XAxis dataKey="name" />
+      <XAxis dataKey=" " />
       <YAxis />
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-      <Line type="monotone" dataKey="uv" stroke="#8884d8" activeDot={{ r: 8 }} />
+
+      {series.map((s) => (
+            <Line dataKey="value" data={s.data} name={s.name} key={s.name} />
+      ))}
+
       {data}
     </LineChart>
     </>;
