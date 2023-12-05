@@ -18,17 +18,18 @@ td button{
   
 /* Элемент меняет цвет при наведении на него */
 td button:hover {   
-    color: #8c00ff;
-    background-color: #e3d1ff ;
+    color: #00008B;
+    background-color: #7999d5 ;
 }
 
 /* Элемент меняет цвет после нажатия, но стоит потом куда-то кликнуть и изменённый цвет заменяется на цвет по умолчанию. */
 td button:focus {  
-    color: #8c00ff;
-    background-color: #e3d1ff ;
+    color: #00008B;
+    background-color: #7999d5 ;
 }
 
 button img {
     vertical-align: right;
     float:right;
+
 }

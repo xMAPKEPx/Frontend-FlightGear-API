@@ -24,9 +24,9 @@ tbody::-webkit-scrollbar-track {
   }
   
 tbody::-webkit-scrollbar-thumb {
-    background-color: #64308ad3;
+    background-color: #293f90d3;
     background-image: -webkit-gradient(linear, 0 0, 0 100%,
-                      color-stop(.5, rgba(157, 111, 192, 0.708)),
+                      color-stop(.5, rgba(83, 119, 188, 0.708)),
                       color-stop(.5, transparent), to(transparent));
   }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 const ChartComponent = () => {
   const [data, setData] = useState([]);
@@ -39,10 +40,9 @@ const ChartComponent = () => {
     },
   ];
 
-  return <>
+
+    return <ResponsiveContainer width="100%" height="100%">
     <LineChart
-      width={1250}
-      height={700}
       data={series}
       margin={{ top: 50, right: 30, left: 20, bottom: 55 }}
     >
@@ -53,12 +53,13 @@ const ChartComponent = () => {
       <Legend />
 
       {series.map((s) => (
-            <Line dataKey="value" data={s.data} name={s.name} key={s.name} />
+            <Line dataKey="value" data={s.data} name={s.name} key={s.name} stroke="#00008B" strokeWidth={3}/>
       ))}
 
       {data}
     </LineChart>
-    </>;
+    </ResponsiveContainer>
+
 }
 
 export default ChartComponent;
