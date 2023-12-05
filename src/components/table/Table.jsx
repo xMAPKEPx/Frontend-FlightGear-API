@@ -1,6 +1,7 @@
 import './Table.module.css';
 import React, { useState, useEffect } from 'react';
 import Item from '../item/item';
+import testResponse from '../../assets/response1.json';
 
 function Table() {
     const [dataParams, setDataParams] = useState([]);
@@ -8,21 +9,6 @@ function Table() {
     useEffect(() => {
         fetch('').then(data => console.log(data)).then(d => setDataParams(d))
     }, [])
-
-    const paramsArray = [
-        {
-            name: 'Тангаж',
-            count: '13862',
-        },
-        {
-            name: 'Мангаж',
-            count: '1323262',
-        },
-        {
-            name: 'Гараж',
-            count: '138262',
-        }
-    ]
     
     return <table>
         <thead>
@@ -31,7 +17,7 @@ function Table() {
                 </tr>
             </thead>
             <tbody>
-            {paramsArray.map((par) => <Item name={par.name} count={par.count}/>)
+            {testResponse.map((par) => <Item name={par.name} count={par.count}/>)
             }
             {dataParams}
             </tbody>
