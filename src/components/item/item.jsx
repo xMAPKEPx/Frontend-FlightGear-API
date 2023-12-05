@@ -10,7 +10,7 @@ const Item = ({name, count}) => {
     const toggleSrc = () => {
         setIsMinus(!isMinus)
     }
-    return (<tr><td><button onClick={toggleSrc}>{name} ({count}){isMinus ? (<img src={plus} width="20" height="20" alt="Плюс" />) : (<img src={minus} width="10" height="10" alt="Минус" />)}</button></td></tr>)
+    return (<tr><td><button onClick={toggleSrc}>{name}{count}{isMinus ? (<img src={plus} width="14" height="14" alt="Плюс" />) : (<img src={minus} width="14" height="14" alt="Минус" />)}</button></td></tr>)
 }
 
 export default Item;

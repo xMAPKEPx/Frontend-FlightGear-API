@@ -24,7 +24,7 @@ const ChartComponent = () => {
         <Legend />
 
         {testResponse.map((s) => (
-              <Line isAnimationActive={false} dot={false} dataKey="value" data={s.data} name={s.name} key={s.name} stroke='#123456' strokeWidth={3} />
+              <Line isAnimationActive={false} dot={false} dataKey="value" data={s.data} name={s.name} key={s.name} stroke='#00008B' strokeWidth={3} />
         ))}
 
         {data}
