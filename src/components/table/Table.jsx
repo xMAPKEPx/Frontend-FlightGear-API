@@ -1,6 +1,6 @@
 import './Table.module.css';
 import React, { useState, useEffect } from 'react';
-import Item from '../item/item';
+import Item from '../tableItem/item';
 import testResponse from '../../assets/response1.json';
 
 function Table() {

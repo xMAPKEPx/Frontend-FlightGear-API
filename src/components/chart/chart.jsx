@@ -11,6 +11,12 @@ const ChartComponent = () => {
       .then(data => setData(data));
   }, []);
 
+  const COLORS = ['#00008B', '#ffffff', '#000000', '#123456', '#654321', '#ccc000']
+  function getRandomInt (min,max) {
+      let rand = min + Math.random() * (max + 1 - min);
+      return Math.floor(rand);
+  }
+
   return <>
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
@@ -24,7 +30,7 @@ const ChartComponent = () => {
         <Legend />
 
         {testResponse.map((s) => (
-              <Line isAnimationActive={false} dot={false} dataKey="value" data={s.data} name={s.name} key={s.name} stroke='#00008B' strokeWidth={3} />
+          <Line isAnimationActive={false} dot={false} dataKey="value" data={s.data} name={s.name} key={s.name} stroke={COLORS[getRandomInt(0, COLORS.length-1)]} strokeWidth={3} />
         ))}
 
         {data}
