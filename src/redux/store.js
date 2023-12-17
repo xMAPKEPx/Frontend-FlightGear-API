@@ -3,6 +3,6 @@ import chartReducer from './ChartSlice/ChartSlice'
 
 export const store = configureStore({
   reducer: {
-    chart: chartReducer
+    chart: chartReducer,
   },
 })

@@ -5,12 +5,12 @@ import plus from '../../assets/img/plus.png'
 import minus from '../../assets/img/minus.png'
 
 import { useDispatch, useSelector } from "react-redux";
-import { setName } from "../../redux/ChartSlice/ChartSlice";
+import { delData, setData} from "../../redux/ChartSlice/ChartSlice";
 
 
 const Item = ({name, count}) => {
     const [isMinus, setIsMinus] = React.useState(false);
-    const nameChart = useSelector((state) =>  state.chart.nameChart)
+    const dataChart = useSelector((state) => state.chart.data);
 
     const dispatch = useDispatch()
 
@@ -19,14 +19,14 @@ const Item = ({name, count}) => {
     }
     const handleClick = (name) => {
         toggleSrc();
+        let index = dataChart.indexOf(name);
         if(!isMinus) {
-            dispatch(setName(name));
-        } else {
-            dispatch(setName(''))
+            dispatch(setData(name));
+        } else if (index !== -1) {
+            dispatch(delData(index));
         }
         
     }
-    console.log(nameChart)
     return (<tr><td><button onClick={() => handleClick(name)}>{name} ({count}){isMinus ? (<img src={minus} width="14" height="14" alt="Минус" />) : (<img src={plus} width="14" height="14" alt="Плюс" />)}</button></td></tr>)
 }
 

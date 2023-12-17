@@ -3,18 +3,17 @@ import { createSlice } from '@reduxjs/toolkit'
 const chartSlice = createSlice({
   name: 'chart',
   initialState: {
-    data: [],
-    nameChart: ''
+    data: []
   },
   reducers: {
     setData(state, action) {
-     state.data = action.payload
+      state.data.push(action.payload);
     },
-    setName(state, action) {
-        state.nameChart = action.payload
-    }
+    delData(state, action) {
+      state.data.splice(action.payload, 1);
+    },
   },
 })
 
-export const { setData, setName } = chartSlice.actions
+export const { setData, delData } = chartSlice.actions
 export default chartSlice.reducer

@@ -2,7 +2,7 @@ import React from "react";
 
 const PopupLoad = () => {
     const onClickHandler = () => {
-        alert("Сессия 1 выбрана")
+        // alert("Сессия 1 выбрана")
         document.querySelector('.dark-content').classList.add('hidden')
     };
 

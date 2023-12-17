@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 const ChartComponent = () => {
   // Состояния для данных и статуса загрузки
   const [data, setData] = useState([]);
-  const nameChart = useSelector((state) => state.chart.nameChart)
-  const filteredDataChart = dataChart.filter((s) => s.name === nameChart);
+  const datasChart = useSelector((state) => state.chart.data);
+  const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
  
   // Загрузка данных из API
   useEffect(() => {
@@ -26,7 +26,7 @@ const ChartComponent = () => {
      return Math.floor(rand);
   }
 
-  console.log('datachart', filteredDataChart)
+  // console.log('datachart', filteredDataChart)
  
   // Отрисовка
   return <>
