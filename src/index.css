@@ -14,22 +14,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.btn {
-  margin-left:6%;
-  margin-right:6%;
-  font-size: 20px;
-  font-family: "Constantia", sans-serif;
-  box-shadow: 0 5px 15px 0 rgba(11, 99, 246, 1);
-  transition: 0.5s;
-  background: #2957b4;
-  color: #fff; 
-  border: none; 
-  padding: 0.5rem 1rem; 
-  margin-bottom: 1rem; 
-}
-
-.btn:hover {
-  transform: translate(0,-3px);
-  box-shadow: 0 20px 40px 0 rgba(11, 99, 246, 1);
-}
