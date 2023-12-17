@@ -1,4 +1,4 @@
-[
+export const dataChart = [
   {
     "name": "Долгота",
     "data": [

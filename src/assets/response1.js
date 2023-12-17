@@ -1,4 +1,4 @@
-[
+export const dataTable = [
   {
     "name": "Долгота",
     "count": 103

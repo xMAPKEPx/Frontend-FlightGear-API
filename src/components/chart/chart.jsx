@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import testResponse from '../../assets/response_2.json'
+import {dataChart} from '../../assets/response_2'
+import { useSelector } from 'react-redux';
 
 // Компонент-график
 const ChartComponent = () => {
   // Состояния для данных и статуса загрузки
   const [data, setData] = useState([]);
+  const nameChart = useSelector((state) => state.chart.nameChart)
+  const filteredDataChart = dataChart.filter((s) => s.name === nameChart);
  
   // Загрузка данных из API
   useEffect(() => {
@@ -15,19 +18,21 @@ const ChartComponent = () => {
   }, [data]);
  
   // Массив цветов
-  const COLORS = ['#00008B', '#ffffff', '#123456', '#654321', '#ccc000']
+  const COLORS = ['#00008B', '#000000', '#123456', '#654321', '#ccc000']
  
   // Функция генерации случайного цвета
   function getRandomInt(min, max) {
      let rand = min + Math.random() * (max + 1 - min);
      return Math.floor(rand);
   }
+
+  console.log('datachart', filteredDataChart)
  
   // Отрисовка
   return <>
        <ResponsiveContainer width="100%" height="100%">
          <LineChart
-           data={testResponse}
+           data={dataChart}
            margin={{ top: 50, right: 30, left: 20, bottom: 55 }}
          >
            {/* Ось X */}
@@ -46,8 +51,9 @@ const ChartComponent = () => {
            <Legend />
  
            {/* Элементы линий */}
-           {testResponse.map((s) => (
-             <Line
+           {filteredDataChart.map((s) => {
+          
+              return ( <Line
                type="monotone"
                isAnimationActive={false}
                dot={false}
@@ -57,8 +63,11 @@ const ChartComponent = () => {
                key={s.name}
                stroke={COLORS[getRandomInt(0, COLORS.length - 1)]}
                strokeWidth={3}
-             />
-           ))}
+             />)
+            
+           })
+            
+           }
  
            {/* Отрисовка дополнительных данных */}
            {data}

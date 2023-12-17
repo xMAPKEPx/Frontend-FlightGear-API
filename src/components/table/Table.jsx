@@ -1,7 +1,7 @@
 import './Table.module.css';
 import React, { useState, useEffect } from 'react';
 import Item from '../tableItem/item';
-import testResponse from '../../assets/response1.json';
+import {dataTable} from '../../assets/response1';
 
 function Table() {
     const [dataParams, setDataParams] = useState([]);
@@ -17,7 +17,7 @@ function Table() {
                 </tr>
             </thead>
             <tbody>
-            {testResponse.map((par) => <Item name={par.name} count={par.count}/>)
+            {dataTable.map((par) => <Item name={par.name} count={par.count}/>)
             }
             {dataParams}
             </tbody>
