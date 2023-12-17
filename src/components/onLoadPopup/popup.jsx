@@ -8,7 +8,8 @@ const PopupLoad = () => {
 
     return <div className="popup">
         <h1>Выберите сессию</h1>
-        <button onClick={onClickHandler}>Сессия 1</button>
+        <button className="btn" onClick={onClickHandler}>Сессия 1</button>
+        <button className="btn" onClick={onClickHandler}>Сессия 1</button>
     </div>
 };
 
