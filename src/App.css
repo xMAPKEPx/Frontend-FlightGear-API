@@ -64,8 +64,19 @@ aside {
 }
 
 .reload-btn {
-  
+  margin-left:92%;
+  padding: 1%;
+  border: none;
+  border-radius: 30%;
+  color: white;
+  transition: .2s linear;
+  background: #0b61f600;
 }
+
+.reload-btn:hover {
+  background-color: #7999d5 ;
+}
+
 
 .hidden {
   display: none !important ;

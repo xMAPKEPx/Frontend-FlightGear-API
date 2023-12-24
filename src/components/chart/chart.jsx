@@ -50,7 +50,7 @@ const ChartComponent = () => {
        <ResponsiveContainer width="100%" height="100%">
          <LineChart
            data={dataChart}
-           margin={{ top: 50, right: 30, left: 20, bottom: 55 }}
+           margin={{ top: 10, right: 30, left: 20, bottom: 55 }}
          >
            {/* Ось X */}
            <XAxis dataKey="id" type='category' stroke='white' allowDuplicatedCategory={false} />
