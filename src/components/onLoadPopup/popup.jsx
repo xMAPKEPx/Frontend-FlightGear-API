@@ -1,3 +1,4 @@
+// import './popup.module.css'
 import React, { useEffect, useState } from "react";
 
 const PopupLoad = () => {

@@ -1,4 +1,3 @@
-
 import './App.css';
 import Table from './components/table/Table';
 import ChartComponent from './components/chart/chart';
@@ -8,15 +7,15 @@ import RefreshButtonComponent from './components/refreshButton/refreshButton';
 function App() {
   return <>
   <div className="App">
-      <div className='dark-content'>
+    <div className="dark-content">
       <PopupLoad />
-      </div>
-      <aside>
-        <Table />
-      </aside>
-      <main>
-        <RefreshButtonComponent />
-        <ChartComponent />
+    </div>
+    <aside>
+      <Table />
+    </aside>
+    <main>
+      <RefreshButtonComponent />
+      <ChartComponent />
       </main>
     </div>
   </>;
