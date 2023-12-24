@@ -9,13 +9,14 @@ const ChartComponent = () => {
   const [data, setData] = useState([]);
   const datasChart = useSelector((state) => state.chart.data);
   const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
- 
+  const isReloading = useSelector((state) => state.chart.isReloading);
   // Загрузка данных из API
   useEffect(() => {
-     fetch('https://api.example.com/data')
+    console.log(isReloading);
+    fetch('')
        .then(response => response.json())
        .then(data => setData(data));
-  }, [data]);
+  }, [isReloading]);
  
   // Массив цветов
   const COLORS = [

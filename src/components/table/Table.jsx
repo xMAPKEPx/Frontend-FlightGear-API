@@ -8,7 +8,7 @@ function Table() {
 
     useEffect(() => {
         fetch('').then(data => console.log(data)).then(d => setDataParams(d))
-    }, [])
+    }, []);
     
     return <table>
         <thead>

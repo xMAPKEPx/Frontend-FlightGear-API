@@ -19,7 +19,7 @@ const Item = ({name, count}) => {
     }
     const handleClick = (name) => {
         toggleSrc();
-        let index = dataChart.indexOf(name);
+        const index = dataChart.indexOf(name);
         if(!isMinus) {
             dispatch(setData(name));
         } else if (index !== -1) {
