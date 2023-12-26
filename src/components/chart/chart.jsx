@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import {dataChart} from '../../assets/response_2'
+import dataChart1 from '../../assets/response11';
+import dataChart2 from '../../assets/response22.json';
 import { useSelector } from 'react-redux';
 
 // Компонент-график
@@ -8,15 +9,20 @@ const ChartComponent = () => {
   // Состояния для данных и статуса загрузки
   const [data, setData] = useState([]);
   const datasChart = useSelector((state) => state.chart.data);
-  const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
   const isReloading = useSelector((state) => state.chart.isReloading);
+  const currentSession = useSelector((state) => state.chart.currentSession);
+  
+  //Тест
+  const dataChart = currentSession === 1 ? dataChart1: dataChart2;
+
+  const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
+  const route = 'https:/apiExample.ru/' + currentSession;
   // Загрузка данных из API
   useEffect(() => {
-    console.log(isReloading);
-    fetch('')
+    fetch(route)
        .then(response => response.json())
        .then(data => setData(data));
-  }, [isReloading]);
+  }, [isReloading, route]);
  
   // Массив цветов
   const COLORS = [

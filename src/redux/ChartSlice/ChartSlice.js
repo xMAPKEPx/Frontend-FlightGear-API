@@ -4,7 +4,8 @@ const chartSlice = createSlice({
   name: 'chart',
   initialState: {
     data: [],
-    isReloading: 0
+    isReloading: 0,
+    currentSession: 0
   },
   reducers: {
     setData(state, action) {
@@ -15,9 +16,12 @@ const chartSlice = createSlice({
     },
     setReload(state, action) {
       state.isReloading=action.payload;
+    },
+    setSession(state, action) {
+      state.currentSession=action.payload
     }
   },
 })
 
-export const { setData, delData, setReload } = chartSlice.actions
+export const { setData, delData, setReload, setSession } = chartSlice.actions
 export default chartSlice.reducer

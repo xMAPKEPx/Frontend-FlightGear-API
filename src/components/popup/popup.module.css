@@ -1,4 +1,4 @@
-div .popup {
+.popup {
     font-family: "Constantia", sans-serif;
     border-radius: 1em;
     padding: 1%;
@@ -16,7 +16,12 @@ div .popup {
     background-color: rgb(107, 168, 217);   
 }
 
-div .popup button {
+.popup__title {
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+.popup button {
     margin-left:6%;
     margin-right:6%;
     font-size: 20px;
@@ -30,7 +35,7 @@ div .popup button {
     margin-bottom: 1rem; 
 }
 
-div .popup button:hover {
+.popup button:hover {
     transform: translate(0,-3px);
     box-shadow: 0 20px 40px 0 rgba(11, 99, 246, 1);
 }

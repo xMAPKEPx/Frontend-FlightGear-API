@@ -14,3 +14,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navigation {
+  float: right;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  font-size: calc(10px + 2vmin);
+}

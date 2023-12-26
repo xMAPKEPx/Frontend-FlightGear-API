@@ -1,5 +1,5 @@
 import React from "react";
-import './refreshButton.module.css';
+import styles from './refreshButton.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { setReload } from '../../redux/ChartSlice/ChartSlice';
 import strelka from '../../assets/img/strelka.png';
@@ -21,7 +21,7 @@ const RefreshButtonComponent = () => {
     const onClickHandler = () => isReloading===1 ? dispatch(setReload(0)) : dispatch(setReload(1));
     const debouncedOnClickHandler = debounce(onClickHandler, 250);
 
-    return <button className="reload-btn" onClick={() => debouncedOnClickHandler()}><img src={strelka} alt="123" width={30} height={30} /></button>
+    return <button className={styles.reload__btn} onClick={() => debouncedOnClickHandler()}><img src={strelka} alt="123" width={30} height={30} /></button>
 };
 
 export default RefreshButtonComponent;

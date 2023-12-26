@@ -1,30 +1,30 @@
-export const dataTable = [
+[
   {
     "name": "Долгота",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Широта",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Высота",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Истинная высота",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Крен",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Тангаж",
-    "count": 103
+    "count": 124
   },
   {
     "name": "Курс",
-    "count": 103
+    "count": 124
   }
 ]
