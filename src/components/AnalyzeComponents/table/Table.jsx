@@ -1,8 +1,8 @@
 import './Table.module.css';
 import React, { useState, useEffect } from 'react';
 import Item from '../tableItem/item';
-import dataTable1 from '../../assets/response1';
-import dataTable2 from '../../assets/response2';
+import dataTable1 from '../../../assets/response1';
+import dataTable2 from '../../../assets/response2';
 import { useSelector } from 'react-redux';
 
 function Table() {

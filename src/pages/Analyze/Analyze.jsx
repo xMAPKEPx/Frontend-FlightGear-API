@@ -1,5 +1,5 @@
 import './Analyze.css';
-import Table from '../../components/table/Table';
+import Table from '../../components/AnalyzeComponents/table/Table';
 import ChartComponent from '../../components/AnalyzeComponents/chart/chart';
 import PopupLoad from '../../components/AnalyzeComponents/popup/popup';
 import RefreshButtonComponent from '../../components/AnalyzeComponents/refreshButton/refreshButton';
