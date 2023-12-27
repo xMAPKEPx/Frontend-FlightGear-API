@@ -6,7 +6,7 @@
     height: 36px;
     background: #2a65a1;
 }
-.added-flight{
+.added_flight{
     display: flex;
     background-color: #ecf0f1;
     border: 1px solid;
@@ -17,36 +17,37 @@
     margin-top: 10px;
     align-items: center;
 }
-.table-element{
+.table_element{
     display: flex;
     width: 630px;
     align-items: center;
 }
-.table-speed{
-    width: 155px;
-    word-wrap:break-word;
-}
-.table-element-item{
+
+.table_element_item_1{
     text-align: center;
     word-wrap:break-word;
-}
-.table-element-item-1{
     display: block;
     margin-left: 15px;
     width: 40px;
     justify-items: right;
 }
-.table-element-item-2{
+.table_element_item_2{
+    text-align: center;
+    word-wrap:break-word;
     display: block;
     width: 180px;
     justify-items: center;
 }
-.table-element-item-3{
+.table_element_item_3{
+    text-align: center;
+    word-wrap:break-word;
     display: block;
-    width: 180px;
+    width: 155px;
     justify-items: center;
 }
-.table-element-item-4{
+.table_element_item_4{
+    text-align: center;
+    word-wrap:break-word;
     display: block;
     width: 170px;
     justify-items: center;

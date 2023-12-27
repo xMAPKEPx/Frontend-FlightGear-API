@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './Plan.css';
+import styles from './PlanItem.module.css';
 import minus from '../../../assets/img/Decrease.png';
 
 
 
-const PlanItem = ({id, heading, speed, altitude}) => {
+const PlanItem = (props) => {
     const [showComponent, setShowComponent] = useState(true);
 
     useEffect(() => {
@@ -15,16 +15,17 @@ const PlanItem = ({id, heading, speed, altitude}) => {
 
     const handleClick = async () => {
         try {
-            const response = await fetch(`https://localhost:7110/api/launch/stages/${id}`, {
+            const response = await fetch(`https://localhost:7110/api/launch/stages/${props.index}`, {
                 method: 'DELETE'
             });
 
             if (response.ok) { 
                 // Если запрос был успешным, прячем компонент
                 setShowComponent(false);
+                props.onRemoveData();
             } else {
                 // Обрабатываем ошибку, если удаление не удалось
-                console.error('Failed to delete the plan item with id:', id);
+                console.error('Failed to delete the plan item with id:', props.id);
             }
         } catch (error) {
             // Обрабатываем ошибку сети или ошибку, когда сервер не ответил
@@ -35,14 +36,13 @@ const PlanItem = ({id, heading, speed, altitude}) => {
     return (
         <>
         {   showComponent &&
-            <div className="added-flight" id={id}>
-                <tr className="table-element">
-                    <td className="table-element-item table-element-item-1">{id}</td>
-                    <td className="table-element-item table-element-item-2">{heading}</td>
-                    <td className="table-element-item table-element-item-3 table-speed">{speed}</td>
-                    <td className="table-element-item table-element-item-4">{altitude}</td>
+            <div className={styles.added_flight} id={props.id}>
+                <tr className={styles.table_element}>
+                    <td className={styles.table_element_item_2}>{props.heading}</td>
+                    <td className={styles.table_element_item_3}>{props.speed}</td>
+                    <td className={styles.table_element_item_4}>{props.altitude}</td>
                     <td>
-                        {showComponent && <button className="minus" type='button' onClick={() =>{handleClick();}}><img src={minus} alt='Decrease' /></button>}
+                        {showComponent && <button className={styles.minus} type='button' onClick={() => handleClick()}><img src={minus} alt='Decrease' /></button>}
                     </td>
                 </tr>
             </div>

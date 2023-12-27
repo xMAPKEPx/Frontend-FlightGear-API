@@ -7,7 +7,6 @@ import minus from '../../../assets/img/minus.png'
 import { useDispatch, useSelector } from "react-redux";
 import { delData, setData} from "../../../redux/ChartSlice/ChartSlice";
 
-
 const Item = ({name, count}) => {
     const [isMinus, setIsMinus] = React.useState(false);
     const dataChart = useSelector((state) => state.chart.data);
@@ -27,7 +26,15 @@ const Item = ({name, count}) => {
         }
         
     }
-    return (<tr><td><button onClick={() => handleClick(name)}>{name} ({count}){isMinus ? (<img src={minus} width="14" height="14" alt="Минус" />) : (<img src={plus} width="14" height="14" alt="Плюс" />)}</button></td></tr>)
+    return (
+        <tr>
+            <td>
+                <button onClick={() => handleClick(name)}>
+                    {name} ({count}){isMinus ? (<img src={minus} width="14" height="14" alt="Минус" />) : (<img src={plus} width="14" height="14" alt="Плюс" />)}
+                </button>
+            </td>
+        </tr>
+    )
 }
 
 export default Item;
