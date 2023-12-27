@@ -1,6 +1,6 @@
 import './Plan.css';
-import MainApp from '../components/PlanTable/PlanTable';
-import NavToAnalyze from '../components/navToAnalyze/navToAnalyze';
+import MainApp from '../../components/PlanTable/PlanTable';
+import NavToAnalyze from '../../components/navToAnalyze/navToAnalyze';
 
 function Plan() {
   return (

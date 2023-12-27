@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './refreshButton.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { setReload } from '../../redux/ChartSlice/ChartSlice';
+import { setReload } from '../../../redux/ChartSlice/ChartSlice';
 import strelka from '../../assets/img/strelka.png';
 
 const RefreshButtonComponent = () => {

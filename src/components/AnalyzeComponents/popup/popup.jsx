@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import styles from './popup.module.css'
 import React, { useEffect, useState } from "react";
-import { setSession } from '../../redux/ChartSlice/ChartSlice';
+import { setSession } from '../../../redux/ChartSlice/ChartSlice';
 
 const PopupLoad = () => {
     const [sessionList, setSessionList] = useState([]);

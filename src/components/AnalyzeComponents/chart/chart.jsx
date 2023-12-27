@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import dataChart1 from '../../assets/response11';
-import dataChart2 from '../../assets/response22.json';
+import dataChart2 from '../../../assets/response22.json';
 import { useSelector } from 'react-redux';
 
 // Компонент-график

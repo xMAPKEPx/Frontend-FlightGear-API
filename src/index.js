@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Analyze from './pages/Analyze';
-import Plan from './pages/Plan';
+import Analyze from './pages/Analyze/Analyze';
+import Plan from './pages/Plan/Plan';
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

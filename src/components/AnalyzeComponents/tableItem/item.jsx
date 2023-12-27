@@ -5,7 +5,7 @@ import plus from '../../assets/img/plus.png'
 import minus from '../../assets/img/minus.png'
 
 import { useDispatch, useSelector } from "react-redux";
-import { delData, setData} from "../../redux/ChartSlice/ChartSlice";
+import { delData, setData} from "../../../redux/ChartSlice/ChartSlice";
 
 
 const Item = ({name, count}) => {

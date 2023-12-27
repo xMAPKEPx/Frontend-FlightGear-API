@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import PlanItem from "../Plan/Plan";
-import plus from '../../assets/img/Union.png'
+import plus from '../../../assets/img/Union.png'
 import './PlanTable.css';
 
 
@@ -106,7 +106,7 @@ const MainApp = () => {
             <input type="number" className="altitude" name="altitude" required/>
           </div>
           <div className="add-stage-element add-stage-element-4">
-            <button onClick={e => {e.preventDefault(); const formData = getData(document.getElementById('form')); handlerAddPlan(formData);}} type="submit" className="plus"><img src={plus}/></button>
+            <button onClick={e => {e.preventDefault(); const formData = getData(document.getElementById('form')); handlerAddPlan(formData);}} type="submit" className="plus"><img src={plus} alt="Union"/></button>
           </div>
         </form>
     </header>

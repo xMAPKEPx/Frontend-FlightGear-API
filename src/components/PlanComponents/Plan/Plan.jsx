@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../Plan/Plan.css';
-import minus from '../../assets//img/Decrease.png';
+import './Plan.css';
+import minus from '../../../assets/img/Decrease.png';
 
 
 
@@ -11,7 +11,7 @@ const PlanItem = ({id, heading, speed, altitude}) => {
         return () => {
 
         };
-    }, {});
+    }, []);
 
     const handleClick = async () => {
         try {
@@ -42,7 +42,7 @@ const PlanItem = ({id, heading, speed, altitude}) => {
                     <td className="table-element-item table-element-item-3 table-speed">{speed}</td>
                     <td className="table-element-item table-element-item-4">{altitude}</td>
                     <td>
-                        {showComponent && <button className="minus" type='button' onClick={() =>{handleClick();}}><img src={minus}/></button>}
+                        {showComponent && <button className="minus" type='button' onClick={() =>{handleClick();}}><img src={minus} alt='Decrease' /></button>}
                     </td>
                 </tr>
             </div>
