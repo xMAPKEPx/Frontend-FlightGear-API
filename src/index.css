@@ -15,10 +15,25 @@ code {
     monospace;
 }
 
-.navigation {
+.navigationAnalyze {
+  display: inline-block;
+  text-decoration: none;
   float: right;
   right: 0;
   bottom: 0;
   position: absolute;
   font-size: calc(10px + 2vmin);
+}
+
+.navigationPlan {
+  display: inline-block;
+  text-decoration: none;
+  float: left;
+  left: 2%;
+  bottom: 5%;
+  position: absolute;
+  font-size: calc(10px + 2vmin);
+  width: 15%;
+  height:8%;
+  border-radius: 25px;
 }

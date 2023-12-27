@@ -29,9 +29,9 @@ aside {
 }
 
 .buttons {
-  height: 5%;
-  margin-bottom: 2%;
-  margin-left: 80%;
+  margin-left: 60%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .hidden {

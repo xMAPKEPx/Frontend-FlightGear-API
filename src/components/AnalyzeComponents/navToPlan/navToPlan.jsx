@@ -1,7 +1,7 @@
 import React from "react";
 
 const NavToPlan = () => {
-    return <a href="/" className='navigation'>К планированию</a>
+    return <a href="/" ><button className='navigationPlan'>К планированию</button></a>
 };
 
 export default NavToPlan;
