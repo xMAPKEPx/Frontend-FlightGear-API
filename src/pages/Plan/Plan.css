@@ -5,9 +5,10 @@
   }
 .Plan {
     text-align: center;
-    /*background-image: url("/public/back-clouds.jpg");*/
-    background: url("/src/assets/img/bg_image.jpg") no-repeat;
-    background-attachment: fixed
+    background-image: url("../../assets/img/bg_image.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
 .Plan{

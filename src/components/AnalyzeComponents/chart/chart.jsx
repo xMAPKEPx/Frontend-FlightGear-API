@@ -16,7 +16,7 @@ const ChartComponent = () => {
   const dataChart = currentSession === 1 ? dataChart1: dataChart2;
 
   const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
-  const route = 'https://localhost:7110/api/analytics/sessions/' + currentSession + '/values';
+  const route = `https://localhost:7110/api/analytics/sessions/${currentSession}/values`;
   // Загрузка данных из API
   useEffect(() => {
     fetch(route)

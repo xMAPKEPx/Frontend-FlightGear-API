@@ -14,23 +14,18 @@ const PlanItem = (props) => {
     }, []);
 
     const handleClick = async () => {
-        try {
-            const response = await fetch(`https://localhost:7110/api/launch/stages/${props.index}`, {
-                method: 'DELETE'
-            });
-
-            if (response.ok) { 
-                // Если запрос был успешным, прячем компонент
-                setShowComponent(false);
-                props.onRemoveData();
-            } else {
-                // Обрабатываем ошибку, если удаление не удалось
-                console.error('Failed to delete the plan item with id:', props.id);
-            }
-        } catch (error) {
-            // Обрабатываем ошибку сети или ошибку, когда сервер не ответил
-            console.error('Network or server error when attempting to delete plan item:', error);
-        }
+        await fetch(`https://localhost:7110/api/launch/stages/${props.index}`, {
+            method: 'DELETE'
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setShowComponent(false);
+                    props.onRemoveData();
+                } else {
+                    console.error('Failed to delete the plan item with id:', props.id);
+                }
+            })
+            .catch((err) => console.error('Network or server error when attempting to delete plan item:', err))
     };
 
     return (

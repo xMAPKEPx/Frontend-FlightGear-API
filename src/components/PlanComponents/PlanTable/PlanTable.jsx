@@ -6,6 +6,14 @@ import styles from './PlanTable.module.css';
 
 const MainApp = () => {
   const [plan, setPlan] = useState([]);
+  const [sendingData, setSendingData] = useState([]);
+  const SERVER_URL = "https://localhost:7110/api/launch/stages";
+
+  const handleClick = (evt) => {
+    evt.preventDefault();
+    const formData = getData(document.getElementById('form'));
+    handlerAddPlan(formData);
+  };
 
   useEffect(() => {
     fetchPlanData();
@@ -40,9 +48,10 @@ const MainApp = () => {
       logPlanItemData(updatedPlan); // Log the updated plan items
       return updatedPlan;
     });
+
     try {
       // Asynchronously send new plan to server
-      const response = await sendDataToServer(newPlan);
+      await sendDataToServer(newPlan);
       // Here you might want to do something with the response
     } catch (error) {
       // Handle any errors that occur during the fetch
@@ -54,39 +63,39 @@ const MainApp = () => {
   const logPlanItemData = (updatedPlan) => {
     console.log(updatedPlan);
   };
+
   const sendDataToServer = async (data) => {
-    const serverUrl = "https://localhost:7110/api/launch/stages";
-    const response = await fetch(serverUrl, {
+    await fetch(SERVER_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    //clearForm();
-    return response.json();
+      body: JSON.stringify(data)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      })
+      .then((response) => setSendingData(response.json()));
+
+    return sendingData;
   };
 
   const fetchPlanData = async () => {
-    try {
-      const serverUrl = "https://localhost:7110/api/launch/stages";
-      const response = await fetch(serverUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setPlan(data); // Обновляем состояние плана данными с сервера
-    } catch (error) {
-      console.error('There was an error fetching the data:', error);
-    }
+    await fetch(SERVER_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      })
+      .then((response) => setPlan(response.json()))
+      .catch((err) => console.error('There was an error fetching the data:', err));
   };
   const onRemoveData = async () => {
     await fetchPlanData();
@@ -94,38 +103,37 @@ const MainApp = () => {
   return (
     <>
       <header>
-      <h1 className={styles.title}>Make Your Flight Simulation</h1>
+      <h1 className={styles.title}>Создайте свою симуляцию полета</h1>
         <form className={styles.add_stage} id="form" method='POST' enctype="application/json"> 
           <div className={styles.add_stage_element_1}>
-            <p className="course-label">Course:</p>
+            <p>Курс:</p>
             <input type="text" className={styles.course} name="heading" required/>
           </div>
           <div className={styles.add_stage_element}>
-            <p className={styles.speed_label}>Indicated Air Speed (m/s):</p>
+            <p className={styles.speed_label}>Расчётная скорость полета (м/с):</p>
             <input type="number" className={styles.speed} step="0.01" name="speed" required/>
           </div>
-          <div className={styles.add_stage_element}>
-            <p className={styles.altitude_label}>True Altitude:</p>
+          <div className={styles.add_stage_element_3}>
+            <p className={styles.altitude_label}>Высота над уровнем моря:</p>
             <input type="number" className={styles.altitude} name="altitude" required/>
           </div>
           <div className={styles.add_stage_element_4}>
-            <button onClick={e => {e.preventDefault(); const formData = getData(document.getElementById('form')); handlerAddPlan(formData);}} type="submit" className={styles.plus}><img src={plus} alt="Union"/></button>
+            <button onClick={(evt) => handleClick(evt)} type="submit" className={styles.plus}><img src={plus} alt="Union"/></button>
           </div>
         </form>
     </header>
     <main className={styles.main_info}>
-      <iframe className={styles.map} src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d69934.32592146858!2d60.723338649999995!3d56.78678595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1700587609013!5m2!1sru!2sru" width="623" height="604" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div>
+      <iframe className={styles.map} src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d69934.32592146858!2d60.723338649999995!3d56.78678595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1700587609013!5m2!1sru!2sru"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div className={styles.plan_table}>
         <table>
           <thead>
             <div className={styles.table_head}>
-              <h2>Flight Plan Stages</h2>
+              <h2>Текущие симуляции</h2>
               <div className={styles.table_head_info}>
                 <tr className={styles.table_element}>
-                  <th className={styles.table_element_info_1}>#</th>
-                  <th className={styles.table_element_info_2}>Course</th>
-                  <th className={styles.table_element_info_3}>Indicated Air Speed</th>
-                  <th className={styles.table_element_info_4}>TrueAltitude</th>
+                  <th className={styles.table_element_info_2}>Курс</th>
+                  <th className={styles.table_element_info_3}>Расчётная скорость</th>
+                  <th className={styles.table_element_info_4}>Высота над уровнем моря</th>
                 </tr>
               </div>
             </div>

@@ -6,10 +6,10 @@ import { setSession } from '../../../redux/ChartSlice/ChartSlice';
 const PopupLoad = () => {
     const [sessionList, setSessionList] = useState([]);
     const dispatch = useDispatch();
-    const route = "https://localhost:7110/api/analytics/sessions/"
+    const ROUTE = "https://localhost:7110/api/analytics/sessions/"
 
     useEffect(() => {
-        fetch(route).then(data => console.log(data)).then(s => setSessionList(s));
+        fetch(ROUTE).then(data => console.log(data)).then(s => setSessionList(s));
     }, []);
 
     // Здесь должен получаться json в формате:

@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 function Table() {
     const [dataParams, setDataParams] = useState([]);
     const currentSession = useSelector((state) => state.chart.currentSession);
-    const route = 'https://localhost:7110/api/analytics/sessions/' + currentSession;
+    const route = `https://localhost:7110/api/analytics/sessions/${currentSession}`;
     console.log(route);
     useEffect(() => {
         fetch(route).then(data => console.log(data)).then(d => setDataParams(d))
