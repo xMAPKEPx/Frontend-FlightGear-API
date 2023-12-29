@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import dataChart1 from '../../../assets/response11.json';
-import dataChart2 from '../../../assets/response22.json';
 import { useSelector } from 'react-redux';
+import axios from "axios";
 
 // Компонент-график
 const ChartComponent = () => {
@@ -11,17 +10,19 @@ const ChartComponent = () => {
   const datasChart = useSelector((state) => state.chart.data);
   const isReloading = useSelector((state) => state.chart.isReloading);
   const currentSession = useSelector((state) => state.chart.currentSession);
-  
-  //Тест
-  const dataChart = currentSession === 1 ? dataChart1: dataChart2;
 
-  const filteredDataChart = dataChart.filter((s) => datasChart.includes(s.name));
+
+  const filteredDataChart = data.filter((s) => datasChart.includes(s.name));
   const route = `https://localhost:7110/api/analytics/sessions/${currentSession}/values`;
   // Загрузка данных из API
   useEffect(() => {
-    fetch(route)
-       .then(response => response.json())
-       .then(data => setData(data));
+    async function fetchData() {
+      // You can await here
+      const result =  await axios(route);
+      console.log("Chart result.Data = ", result.data);
+      setData(result.data);
+    }
+    fetchData();
   }, [isReloading, route]);
  
   // Массив цветов
@@ -48,14 +49,12 @@ const ChartComponent = () => {
      let rand = min + Math.random() * (max + 1 - min);
      return Math.floor(rand);
   }
-
-  // console.log('datachart', filteredDataChart)
  
   // Отрисовка
   return <>
        <ResponsiveContainer width="100%" height="100%">
          <LineChart
-           data={dataChart}
+           data={data}
            margin={{ top: 10, right: 30, left: 20, bottom: 55 }}
          >
            {/* Ось X */}
@@ -93,7 +92,6 @@ const ChartComponent = () => {
            }
  
            {/* Отрисовка дополнительных данных */}
-           {data}
          </LineChart>
        </ResponsiveContainer>
      </>

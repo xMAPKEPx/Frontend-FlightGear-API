@@ -1,21 +1,29 @@
 import './Table.module.css';
 import React, { useState, useEffect } from 'react';
 import Item from '../tableItem/item';
-import dataTable1 from '../../../assets/response1';
-import dataTable2 from '../../../assets/response2';
+// import dataTable1 from '../../../assets/response1';
+// import dataTable2 from '../../../assets/response2';
 import { useSelector } from 'react-redux';
+import axios from "axios";
 
 function Table() {
     const [dataParams, setDataParams] = useState([]);
     const currentSession = useSelector((state) => state.chart.currentSession);
     const route = `https://localhost:7110/api/analytics/sessions/${currentSession}`;
     console.log(route);
+    
     useEffect(() => {
-        fetch(route).then(data => console.log(data)).then(d => setDataParams(d))
-    }, [route]);
+        async function fetchData() {
+            // You can await here
+            const result =  await axios(route);
+            console.log("Table result.Data = ", result.data);
+            setDataParams(result.data);
+        }
+        fetchData();
+    }, [route, currentSession]);
 
     //Test
-    const dataTable = currentSession===1 ? dataTable1: dataTable2;
+    // const dataTable = currentSession===1 ? dataTable1: dataTable2;
     
     return <table>
         <thead>
@@ -24,9 +32,9 @@ function Table() {
             </tr>
         </thead>
         <tbody>
-        {dataTable.map((par) => <Item name={par.name} count={par.count}/>)
+        {dataParams.map((par) => <Item name={par.name} count={par.count}/>)
         }
-        {dataParams}
+        {/* {dataParams} */}
         </tbody>
     </table>
 };
