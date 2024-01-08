@@ -66,20 +66,6 @@ const MainApp = () => {
   };
 
   const sendDataToServer = async (body) => {
-    // Параметр функции - data
-    // await fetch(SERVER_URL, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //   })
-    //   .then((response) => setSendingData(response.json()));
 
       await axios({
         method: 'post',
@@ -97,19 +83,6 @@ const MainApp = () => {
   };
 
   const fetchPlanData = async () => {
-    // await fetch(SERVER_URL, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //   })
-    //   .then((response) => setPlan(response.json()))
-    //   .catch((err) => console.error('There was an error fetching the data:', err));
     try {
       const result = await axios.get(SERVER_URL);
       console.log('Plan result.data = ', result.data)
