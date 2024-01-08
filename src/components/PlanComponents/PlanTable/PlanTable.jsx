@@ -122,7 +122,7 @@ const MainApp = () => {
         <table>
           <thead>
             <div className={styles.table_head}>
-              <h2>Текущие симуляции</h2>
+              <h2>Выбранные шаги полета</h2>
               <div className={styles.table_head_info}>
                 <tr className={styles.table_element}>
                   <th className={styles.table_element_info_2}>Курс</th>
